@@ -12,10 +12,25 @@ import ru.flexconstructor.AMZScout.controller.ThrottlerFilter;
 import ru.flexconstructor.AMZScout.controller.ExampleController;
 import ru.flexconstructor.AMZScout.service.ThrottlingService;
 
+/**
+ * HTTP router.
+ */
 @Configuration
 @RequiredArgsConstructor
 public class Router {
+
+    /**
+     * {@link ThrottlingService} instance.
+     */
     private final ThrottlingService throttlingService;
+
+    /**
+     * Routes http requests.
+     *
+     * @param controller {@link ExampleController} instance.
+     *
+     * @return {@link RouterFunction<ServerResponse>}
+     */
     @Bean
     public RouterFunction<ServerResponse> route(ExampleController controller){
         return RouterFunctions.route(RequestPredicates.GET("/my_api")

@@ -11,6 +11,9 @@ import org.springframework.validation.annotation.Validated;
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 
+/**
+ * Application configuration properties.
+ */
 @Configuration
 @ConfigurationProperties(prefix = "throttler")
 @NoArgsConstructor
@@ -18,7 +21,15 @@ import java.time.temporal.ChronoUnit;
 @Getter
 @Setter
 public class ThrottlerProperties {
+
+    /**
+     * Timeout duration.
+     */
     @DurationUnit(ChronoUnit.MINUTES)
     private Duration timeUnit;
+
+    /**
+     * Requests limit.
+     */
     private int limit;
 }
